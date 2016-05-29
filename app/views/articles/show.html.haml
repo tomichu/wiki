@@ -1,0 +1,8 @@
+%h1= @article.title
+%p= @article.content
+
+.btn-group
+  = link_to "戻る", root_path, class: "btn btn-default"
+  - if user_signed_in?
+    = link_to "編集", edit_article_path(@article), class: "btn btn-default"
+    = link_to "削除", article_path(@article), method: :delete, data: { confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-default"
